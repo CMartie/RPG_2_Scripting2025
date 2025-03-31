@@ -14,6 +14,11 @@ public class PlayerRPG : MonoBehaviour
 
     public Image attackReadyImage;
 
+    public GameObject bulletPrefab;
+    public Transform spawnPosition;
+    public float bulletForce = 500f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +58,11 @@ public class PlayerRPG : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Projectile();
+        }
     }
 
     public void Attack(BaseEnemy enemy)
@@ -62,6 +72,11 @@ public class PlayerRPG : MonoBehaviour
         attackReadyImage.gameObject.SetActive(isAttackReady);
     }
 
+    public void RangedAttack()
+    {
+
+    }
+
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -69,6 +84,16 @@ public class PlayerRPG : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("YOU DIED");
+        }
+    }
+
+    public void Projectile()
+    {
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            GameObject go = Instantiate(bulletPrefab, spawnPosition.position, spawnPosition.rotation);
+
+            go.GetComponent<Rigidbody>().AddForce(go.transform.forward * bulletForce);
         }
     }
 }
