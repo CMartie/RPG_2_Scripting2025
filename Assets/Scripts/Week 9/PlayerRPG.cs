@@ -20,6 +20,8 @@ public class PlayerRPG : MonoBehaviour
 
     public GameObject YouDiedScreen;
 
+    public int ammo = 8;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,8 +64,13 @@ public class PlayerRPG : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Projectile();
-        }
+            if(ammo > 0)
+            {
+                Projectile();
+            }
+            
+            
+        } 
     }
 
     public void Attack(BaseEnemy enemy)
@@ -91,11 +98,11 @@ public class PlayerRPG : MonoBehaviour
 
     public void Projectile()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
             GameObject go = Instantiate(bulletPrefab, spawnPosition.position, spawnPosition.rotation);
 
             go.GetComponent<Rigidbody>().AddForce(go.transform.forward * bulletForce);
-        }
+
+            ammo -= 1;
+        
     }
 }
