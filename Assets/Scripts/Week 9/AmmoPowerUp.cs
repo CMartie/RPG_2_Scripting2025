@@ -23,9 +23,11 @@ public class AmmoPowerUp : PowerUpParent
         Debug.Log("picked up ammo");
 
         if (other.gameObject.tag == "Player")
-        { 
-           base.ResetAmmo();
-            PickUp();
+        {
+            Debug.Log("ran if statement");
+
+            base.ResetAmmo();
+             PickUp();
         }
 
 

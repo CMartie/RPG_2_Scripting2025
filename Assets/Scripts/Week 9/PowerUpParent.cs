@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpParent : MonoBehaviour
 {
-    private PlayerRPG player;
+    public PlayerRPG player;
    // public bool WasCollected = false;
 
     // Start is called before the first frame update
