@@ -17,6 +17,8 @@ public class BaseEnemy : MonoBehaviour
 
     private PlayerRPG player;
 
+   //public float projectileDamages = 25f;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -60,7 +62,7 @@ public class BaseEnemy : MonoBehaviour
         }
     }
 
-    public virtual void TakeProjectileDamage(float projectileDamage)
+   /* protected virtual void TakeProjectileDamage(float projectileDamage)
     {
 
         health -= projectileDamage;
@@ -70,11 +72,12 @@ public class BaseEnemy : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+   */
     public virtual void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Bullet")
         {
-            TakeProjectileDamage(25f);
+            TakeDamage(player.projectileDamages);
         }
     }
 }

@@ -22,6 +22,10 @@ public class PlayerRPG : MonoBehaviour
 
     public int ammo = 8;
 
+    public float projectileDamages = 25f;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,5 +108,16 @@ public class PlayerRPG : MonoBehaviour
 
             ammo -= 1;
         
+    }
+
+    protected virtual void GiveProjectileDamage(BaseEnemy enemy)
+    {
+
+        enemy.TakeDamage(projectileDamages);
+
+        if (health <= 0f)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

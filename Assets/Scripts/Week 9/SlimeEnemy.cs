@@ -30,8 +30,8 @@ public class SlimeEnemy : BaseEnemy
         base.TakeDamage(damage);
     }
 
-    public override void TakeProjectileDamage(float projectileDamage)
+   /* protected override void TakeProjectileDamage(float projectileDamage)
     {
         base.TakeProjectileDamage(projectileDamage);
-    }
+    }*/
 }

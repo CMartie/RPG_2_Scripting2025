@@ -20,11 +20,10 @@ public class AmmoPowerUp : PowerUpParent
 
     public virtual void OnCollisionEnter(Collision other)
     {
-        Debug.Log("picked up ammo");
 
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("ran if statement");
+            Debug.Log("picked up ammo");
 
             base.ResetAmmo();
              PickUp();

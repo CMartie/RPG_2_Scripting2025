@@ -5,7 +5,8 @@ using UnityEngine;
 public class PowerUpParent : MonoBehaviour
 {
     public PlayerRPG player;
-   // public bool WasCollected = false;
+    // public bool WasCollected = false;
+    public BaseEnemy enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +35,10 @@ public class PowerUpParent : MonoBehaviour
     public virtual void PickUp()
     {
         gameObject.SetActive(false);
+    }
+
+    protected virtual void ProjectileIncrease()
+    {
+        player.projectileDamages = 100f;
     }
 }
