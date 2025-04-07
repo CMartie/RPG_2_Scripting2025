@@ -18,6 +18,7 @@ public class PlayerRPG : MonoBehaviour
     public Transform spawnPosition;
     public float bulletForce = 500f;
 
+    public GameObject YouDiedScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +60,7 @@ public class PlayerRPG : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Projectile();
         }
@@ -84,12 +85,13 @@ public class PlayerRPG : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("YOU DIED");
+            YouDiedScreen.SetActive(true);
         }
     }
 
     public void Projectile()
     {
-        if(Input.GetKeyDown(KeyCode.Tab))
+        if(Input.GetKeyDown(KeyCode.Q))
         {
             GameObject go = Instantiate(bulletPrefab, spawnPosition.position, spawnPosition.rotation);
 

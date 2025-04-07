@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
 {
-    public float health = 100f;
+    public float health = 20f;
     public float speed = 3f;
-    public float attackDamage = 0f;
+    public float attackDamage = 25f;
 
     public float attackRange = 3f;
 
@@ -72,9 +72,9 @@ public class BaseEnemy : MonoBehaviour
     }
     public virtual void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "bullet")
+        if (other.gameObject.tag == "Bullet")
         {
-            TakeProjectileDamage(2f);
+            TakeProjectileDamage(25f);
         }
     }
 }
