@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUpParent : MonoBehaviour
 {
     private PlayerRPG player;
+   // public bool WasCollected = false;
 
     // Start is called before the first frame update
     void Start()
@@ -15,12 +16,23 @@ public class PowerUpParent : MonoBehaviour
     // Update is called once per frame
     
 
-    public virtual void OnCollisionEnter(Collision other)
+    /*public virtual void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Player")
         {
+            WasCollected = true;
             this.gameObject.SetActive(false);
         }
+    }*/
+
+    public virtual void ResetAmmo()
+    {
+        player.ammo = 8;
+        
     }
 
+    public virtual void PickUp()
+    {
+        gameObject.SetActive(false);
+    }
 }

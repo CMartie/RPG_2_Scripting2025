@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoPowerUp : MonoBehaviour
+public class AmmoPowerUp : PowerUpParent
 {
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,20 @@ public class AmmoPowerUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
+    }
+
+    public virtual void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("picked up ammo");
+
+        if (other.gameObject.tag == "Player")
+        { 
+           base.ResetAmmo();
+            PickUp();
+        }
+
+
     }
 }
+
