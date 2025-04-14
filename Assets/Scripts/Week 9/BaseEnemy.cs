@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BaseEnemy : MonoBehaviour
 {
@@ -13,7 +14,21 @@ public class BaseEnemy : MonoBehaviour
 
     private float timer = 0f;
 
-   
+
+
+    protected bool hasSeenPlayer = false;
+
+    protected NavMeshAgent navAgent;
+
+    [SerializeField]
+    protected List<Transform> patrolPoints = new List<Transform>();
+
+    protected int patrolPointIndex = 0;
+
+
+    [SerializeField] protected float aggroRange = 5f;
+
+
 
     [SerializeField] protected float attackInterval = 1f;
 
@@ -25,6 +40,9 @@ public class BaseEnemy : MonoBehaviour
     protected virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRPG>();
+        
+        navAgent = GetComponent<NavMeshAgent>();
+       // navAgent.SetDestination(patrolPoints[patrolPointIndex].position);
     }
 
     // Update is called once per frame
