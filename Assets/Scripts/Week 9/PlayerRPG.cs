@@ -125,4 +125,12 @@ public class PlayerRPG : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Vision Cone")
+        {
+            other.GetComponentInParent<BaseEnemy>().SeePlayer();
+        }
+    }
 }
