@@ -26,7 +26,7 @@ public class AmmoPowerUp : PowerUpParent
             Debug.Log("picked up ammo");
 
             base.ResetAmmo();
-             PickUp();
+            base.PickUp();
         }
 
 

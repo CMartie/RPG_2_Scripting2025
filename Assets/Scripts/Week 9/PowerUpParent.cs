@@ -8,6 +8,8 @@ public class PowerUpParent : MonoBehaviour
     // public bool WasCollected = false;
     public BaseEnemy enemy;
 
+    public AudioSource popNoise;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,14 @@ public class PowerUpParent : MonoBehaviour
 
     public virtual void PickUp()
     {
+        StartCoroutine(DisableDelay());
+    }
+
+    IEnumerator DisableDelay()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        popNoise.Play();
+        yield return new WaitForSeconds(1f);
         gameObject.SetActive(false);
     }
 

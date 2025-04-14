@@ -36,7 +36,7 @@ public class HealthPowerip : PowerUpParent
             Debug.Log("i am healed");
 
             NewHealth();
-            PickUp();
+            base.PickUp();
         }
 
 
