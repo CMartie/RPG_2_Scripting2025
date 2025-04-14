@@ -2671,7 +2671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f65298072095d40916bd4c26212d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 100
   speed: 3
   attackDamage: 25
   attackRange: 3
@@ -5291,7 +5291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f65298072095d40916bd4c26212d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 100
   speed: 3
   attackDamage: 25
   attackRange: 3
