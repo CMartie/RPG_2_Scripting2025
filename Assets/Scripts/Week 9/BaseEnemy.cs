@@ -14,7 +14,8 @@ public class BaseEnemy : MonoBehaviour
 
     private float timer = 0f;
 
-
+    public AudioSource attackSound;
+    public AudioClip hitClip;
 
     protected bool hasSeenPlayer = false;
 
@@ -64,6 +65,7 @@ public class BaseEnemy : MonoBehaviour
 
     protected virtual void Attack()
     {
+        attackSound.Play();
         player.TakeDamage(attackDamage);
     }
 
@@ -75,6 +77,8 @@ public class BaseEnemy : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         health -= damage;
+
+        attackSound.PlayOneShot(hitClip);
 
         if(health <= 0f)
         {

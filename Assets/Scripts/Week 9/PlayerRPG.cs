@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,12 +25,14 @@ public class PlayerRPG : MonoBehaviour
 
     public float projectileDamages = 25f;
 
-    
+    public TextMeshProUGUI healthText;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        healthText.text = "" + health;
     }
 
     // Update is called once per frame
@@ -92,6 +95,8 @@ public class PlayerRPG : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+
+        healthText.text = "" + health;
 
         if (health <= 0)
         {

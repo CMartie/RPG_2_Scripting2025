@@ -24,6 +24,7 @@ public class HealthPowerip : PowerUpParent
         {
             player.health = 100;
         }
+        player.healthText.text = "" + player.health;
     }
 
     public virtual void OnCollisionEnter(Collision other)

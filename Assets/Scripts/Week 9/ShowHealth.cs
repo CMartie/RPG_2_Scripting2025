@@ -12,17 +12,12 @@ public class ShowHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthText = GetComponent<TextMeshProUGUI>();
+        healthText.text = "" + player.health;
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthText.text = "" + player.health;
-
-        if(player.health <= 0)
-        {
-            Destroy(healthText);
-        }
+       
     }
 }
