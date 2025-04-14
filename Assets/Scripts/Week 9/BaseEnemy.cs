@@ -13,6 +13,8 @@ public class BaseEnemy : MonoBehaviour
 
     private float timer = 0f;
 
+   private AudioFiles audioFiles;
+
     [SerializeField] protected float attackInterval = 1f;
 
     private PlayerRPG player;

@@ -7,11 +7,13 @@ public class SpittingEnemy : BaseEnemy
     public GameObject spitBallPrefab;
     public Transform spitSource;
     public float spitPower = 500f;
+    private AudioFiles audioFiles;
 
-   
 
     protected override void Attack()
     {
+        audioFiles.CatAttack();
+
         GameObject go = Instantiate(spitBallPrefab, spitSource.transform.position, spitSource.transform.rotation);
         go.GetComponent<Rigidbody>().AddForce(go.transform.forward * spitPower);
     }
